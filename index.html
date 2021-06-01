@@ -26,17 +26,24 @@
                 	enableGroundShadow: true,
                 	groundYBias:1
                 });
-                scene.clearColor = new BABYLON.Color3(0.51, 0.83, 0.95);
+            	scene.clearColor = new BABYLON.Color3(0.51, 0.83, 0.95);
                 var camera = new BABYLON.FreeCamera('camera1', new BABYLON.Vector3(0, 3, -10), scene); //makes camera
                 camera.setTarget(BABYLON.Vector3.Zero()); // targets camera to origin
                 camera.attachControl(canvas, true); // attaches camera to canvas (move camera by holding left click, arrow keys to move position of camera)
-                const box = BABYLON.MeshBuilder.CreateBox("box", {width: 10, height: 2, depth: 3});
-                const sphere = BABYLON.MeshBuilder.CreateSphere("sphere", {diameterX: 2, diameterY:2, diameterZ: 2.9});
-                sphere.scaling.x = 1.25;
+                const box = BABYLON.MeshBuilder.CreateBox("box", {width: 10, height: 2, depth: 3}, scene);
+    			const cylinder = BABYLON.MeshBuilder.CreateCylinder("cylinder", {});
+                cylinder.position.y = 4;
+                cylinder.scaling.y = 3;
+                const sphere = BABYLON.MeshBuilder.CreateSphere("sphere", {diameterX: 2, diameterY:2, diameterZ: 2.9}, scene);
+				sphere.scaling.x = 1.25;
                 sphere.scaling.y = 5.5;
                 sphere.rotation.z = Math.PI / 2;
                 sphere.position.y = -1;
-                scene.diffuseColor = new BABYLON.Color3(0.51, 0.83, 0.95); //Idk y this isnt working its supposed to change the color of the ground.
+    			const triangle = BABYLON.MeshBuilder.CreateCylinder("triangle", {tessellation: 3});
+    			triangle.position.y = 5;
+    			triangle.position.x = 1.25;
+    			triangle.scaling.x = 4;
+
                 return scene;
             };
     
