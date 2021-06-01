@@ -19,6 +19,13 @@
             var engine = new BABYLON.Engine(canvas, true);
             var createScene = function () {
                 var scene = new BABYLON.Scene(engine);
+                var environment = scene.createDefaultEnvironment({
+                	createGround: true,
+                	groundSize: 1000,
+                	groundColor: BABYLON.Color3.Blue(),
+                	enableGroundShadow: true,
+                	groundYBias:1
+                });
                 scene.clearColor = new BABYLON.Color3(0.51, 0.83, 0.95);
                 var camera = new BABYLON.FreeCamera('camera1', new BABYLON.Vector3(0, 3, -10), scene); //makes camera
                 camera.setTarget(BABYLON.Vector3.Zero()); // targets camera to origin
