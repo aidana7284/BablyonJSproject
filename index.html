@@ -23,8 +23,12 @@
                 var camera = new BABYLON.FreeCamera('camera1', new BABYLON.Vector3(0, 3, -10), scene); //makes camera
                 camera.setTarget(BABYLON.Vector3.Zero()); // targets camera to origin
                 camera.attachControl(canvas, true); // attaches camera to canvas (move camera by holding left click, arrow keys to move position of camera)
-                var box = BABYLON.Mesh.CreateBox("Box", 4.0, scene);
-                const ground = BABYLON.MeshBuilder.CreateGround("ground", {width:10, height:10}); ///this is working though
+                const box = BABYLON.MeshBuilder.CreateBox("box", {width: 10, height: 2, depth: 3});
+                const sphere = BABYLON.MeshBuilder.CreateSphere("sphere", {diameterX: 2, diameterY:2, diameterZ: 2.9});
+                sphere.scaling.x = 1.25;
+                sphere.scaling.y = 5.5;
+                sphere.rotation.z = Math.PI / 2;
+                sphere.position.y = -1;
                 scene.diffuseColor = new BABYLON.Color3(0.51, 0.83, 0.95); //Idk y this isnt working its supposed to change the color of the ground.
                 return scene;
             };
